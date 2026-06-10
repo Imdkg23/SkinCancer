@@ -1,0 +1,891 @@
+/* ==========================================================================
+   DERMSIGHT CLINICAL GLOBAL CORE DESIGN TOKENS & VARIABLES
+   ========================================================================== */
+:root {
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-subtle: #eff6ff;
+  --success: #16a34a;
+  --success-subtle: #f0fdf4;
+  --danger: #dc2626;
+  --danger-subtle: #fef2f2;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Dynamic Dark Theme Value Mappings */
+html[data-theme="dark"] {
+  --bg-app: #0f172a;
+  --bg-surface: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-subtle: #1e293b;
+  --border: #334155;
+  --border-subtle: #1e293b;
+}
+
+/* Reset Constraints */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Layout Framework wrapper */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR HEADER COMPONENT 
+   ========================================================================== */
+.site-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.logo-brand {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-accent {
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 16px;
+}
+
+.nav-link-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.nav-link-btn:hover, .nav-link-btn.active {
+  color: var(--primary);
+  background-color: var(--primary-subtle);
+}
+
+.utility-theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.utility-theme-toggle:hover {
+  background-color: var(--border-subtle);
+}
+
+.medical-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  border-left: 2px solid var(--border);
+}
+
+.clinical-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.practitioner-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.auth-action-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.enter-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.enter-btn:hover { background-color: var(--primary-hover); }
+
+.exit-btn {
+  background-color: var(--danger-subtle);
+  color: var(--danger);
+}
+
+.exit-btn:hover { background-color: var(--danger); color: white; }
+
+/* ==========================================================================
+   LANDING OVERVIEW PAGE VIEW
+   ========================================================================== */
+.home-container {
+  padding: 40px 0;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.clinical-tag {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.hero-text-block h1 {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.hero-text-block h1 span {
+  color: var(--primary);
+}
+
+.hero-text-block p {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-button-group {
+  display: flex;
+  gap: 16px;
+}
+
+.primary-action-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.primary-action-btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.secondary-action-btn {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.secondary-action-btn:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--text-muted);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   CLINICAL EDUCATION MODULE RESOURCE PAGE
+   ========================================================================== */
+.education-container {
+  padding: 30px 0;
+}
+
+.medical-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px auto;
+}
+
+.medical-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.medical-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.abcde-showcase h3, .clinical-imagery-section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.abcde-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.abcde-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.abcde-letter {
+  width: 48px;
+  height: 48px;
+  background-color: var(--danger-subtle);
+  color: var(--danger);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 auto 14px auto;
+}
+
+.abcde-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.abcde-card p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.medical-images-flex {
+  display: flex;
+  gap: 24px;
+}
+
+.image-clinical-wrapper {
+  flex: 1;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.image-clinical-wrapper img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.image-clinical-wrapper h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   AUTHENTICATION INTERFACE CORE CARD
+   ========================================================================== */
+.login-wrapper-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.medical-form-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.medical-form-card h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.clinical-error-alert {
+  background-color: var(--danger-subtle);
+  color: var(--danger);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.google-auth-node {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 24px 0;
+}
+
+.form-divider::before, .form-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-divider span {
+  padding: 0 10px;
+}
+
+.form-input-block {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.form-input-block label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.form-input-block input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.form-input-block input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.form-submit-btn {
+  width: 100%;
+  background-color: var(--text-main);
+  color: var(--bg-surface);
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--transition);
+}
+
+.form-submit-btn:hover {
+  opacity: 0.9;
+}
+
+.form-view-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   PRIMARY DIAGNOSTIC ASSESSMENT ACTIVE DASHBOARD
+   ========================================================================== */
+.dashboard-layout-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.clinical-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.upload-drop-zone {
+  border: 2px dashed var(--border);
+  background-color: var(--bg-app);
+  border-radius: var(--radius-md);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.upload-drop-zone:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-subtle);
+}
+
+.upload-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.upload-prompt p {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.file-restriction-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 280px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.run-analysis-btn {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.run-analysis-btn:disabled {
+  background-color: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Results Metrics Sub-Box Overlay */
+.clinical-results-box {
+  background-color: var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.case-subject-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.evaluation-metric-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.evaluation-output-class {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.gauge-circular-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-ring-circle {
+  transform: rotate(-90deg);
+}
+
+.animated-ring-path {
+  transition: stroke-dashoffset 0.6s ease-in-out;
+}
+
+.gauge-percentage-text {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 800;
+  top: 36px;
+}
+
+.gauge-confidence-subtext {
+  position: absolute;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  bottom: 24px;
+}
+
+/* ==========================================================================
+   HISTORICAL CASE LEDGER & PURGE CONTROL MECHANISMS
+   ========================================================================== */
+.ledger-card {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+}
+
+.ledger-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.ledger-header-row .card-header-title {
+  margin-bottom: 0;
+}
+
+.purge-all-btn {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.purge-all-btn:hover {
+  background-color: var(--danger);
+  color: white;
+}
+
+.history-list-element {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+}
+
+.empty-ledger-notice {
+  text-align: center;
+  padding: 40px 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.history-case-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.history-case-row-item:hover {
+  background-color: var(--bg-app);
+}
+
+.history-case-meta strong {
+  font-size: 14px;
+  color: var(--text-main);
+  display: block;
+}
+
+.history-case-timestamp {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 2px 0 4px 0;
+}
+
+.history-case-confidence {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.history-case-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clinical-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 30px;
+}
+
+.badge-malig { background-color: var(--danger-subtle); color: var(--danger); }
+.badge-ben { background-color: var(--success-subtle); color: var(--success); }
+
+.individual-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+  opacity: 0.3;
+  transition: var(--transition);
+}
+
+.history-case-row-item:hover .individual-delete-btn {
+  opacity: 1;
+}
+
+.individual-delete-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
+   FOOTER FRAMEWORK UTILITIES
+   ========================================================================== */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  margin-top: 60px;
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-disclaimer {
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+/* System Boot Loading Spinners */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-app);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spinner-spin 0.8s linear infinite;
+}
+
+@keyframes spinner-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM MEDIA QUERIES (TABLETS & PHONES)
+   ========================================================================== */
+@media (max-width: 968px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero-text-block h1 { font-size: 36px; }
+  .hero-button-group { justify-content: center; }
+  .hero-image-frame img { height: 300px; }
+  
+  .features-grid { grid-template-columns: 1fr; }
+  
+  .abcde-grid { grid-template-columns: repeat(3, 1fr); }
+  .medical-images-flex { flex-direction: column; }
+  
+  .dashboard-layout-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .navbar { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-links { flex-direction: column; width: 100%; gap: 10px; }
+  .medical-profile-badge { border-left: none; padding: 0; }
+  
+  .abcde-grid { grid-template-columns: 1fr; }
+  .footer-content { flex-direction: column; gap: 10px; text-align: center; }
+}
