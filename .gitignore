@@ -6,7 +6,7 @@ node_modules/
 backend/node_modules/
 frontend/node_modules/
 backend/skin_cancer_cnn.h5
-
+backend/skin_cancer_efficientnet.keras
 # Ignore private security keys
 .env
 backend/.env
