@@ -1,0 +1,6 @@
+tensorflow-cpu
+fastapi
+pydantic
+pillow
+uvicorn
+python-multipart
